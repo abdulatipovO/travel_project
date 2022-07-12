@@ -1,0 +1,113 @@
+{% extends 'wrapper.html' %}
+
+
+<!-- Home -->
+{% block home %}
+	<div class="home">
+		<div class="background_image" style="background-image:url(/static/images/contact.jpg)"></div>
+	</div> -->
+
+	<!-- Search -->
+
+	<div class="home_search">
+		<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_search_container">
+							<div class="home_search_title">{{ search }}</div>
+							<div class="home_search_content">
+								<form action="#" class="home_search_form" id="home_search_form">
+									<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
+										<input type="text" class="search_input search_input_1" placeholder="{{ city }}" required="required">
+										<input type="text" class="search_input search_input_2" placeholder="{{ departure }}" required="required">
+										<input type="text" class="search_input search_input_3" placeholder="{{ arrival }}" required="required">
+										<input type="text" class="search_input search_input_4" placeholder="{{ budget }}" required="required">">
+										<button class="home_search_button">{{ search_btn }}</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+{% endblock home %}
+
+{% block content %}
+
+
+
+	<!-- Contact -->
+
+	<div class="contact">
+		<div class="container">
+			<div class="row">
+
+				<!-- Get in touch -->
+				<div class="col-lg-6">
+					<div class="contact_content">
+						<div class="contact_title">{{ contact_title_1 }}</div>
+						<div class="contact_text">
+							<p>{{ contact_text_1 }}</p>
+						</div>
+						<div class="contact_list">
+							<ul>
+								<li>
+									<div>{{ address }}</div>
+									<div>1481 Creekside Lane Avila Beach, CA 931</div>
+								</li>
+								<li>
+									<div>{{ phone }}</div>
+									<div>+53 345 7953 32453</div>
+								</li>
+								<li>
+									<div>{{ email }}</div>
+									<div>yourmail@gmail.com</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- Contact Form -->
+				<div class="col-lg-6">
+					<div class="contact_form_container">
+						<form action="{% url 'main:contact' %}" id="contact_form" class="contact_form" method="post">
+							{% csrf_token %}
+
+							<div style="margin-bottom: 18px">
+								<input type="text" class="contact_input contact_input_name inpt" placeholder="Your Name" name="name" required="required">
+								<div class="input_border"></div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6" style="margin-bottom: 18px">
+									<div><input type="email" class="contact_input contact_input_email inpt" placeholder="Your E-mail" name="email" required="required"><div class="input_border"></div></div>
+								</div>
+								<div class="col-lg-6" style="margin-bottom: 18px">
+									<div><input type="text" class="contact_input contact_input_subject inpt" placeholder="Subject" name="subject" required="required"><div class="input_border"></div></div>
+								</div>
+							</div>
+							<div><textarea class="contact_textarea contact_input inpt" placeholder="Message" name="msg" required="required"></textarea><div class="input_border" style="bottom:3px"></div></div>
+							<button class="contact_button" type="submit">{{ send }}</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Map -->
+
+	<div class="contact_map">
+		<!-- Google Map -->
+		<div class="map">
+			<div id="google_map" class="google_map">
+				<div class="map_container">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193357.02531600994!2d72.17955864194587!3d40.779539644731585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bc901d6b13d4ef%3A0xfc45bcaa7973dfac!2z0JDQvdC00LjQttCw0L0sINCj0LfQsdC10LrQuNGB0YLQsNC9!5e0!3m2!1sru!2s!4v1657092642782!5m2!1sru!2s" width="1200" height="550" style="border:0; margin-left:400px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock content %}
+	<!-- Footer -->
