@@ -65,3 +65,5 @@ class DestinationPageView(View):
     def get(self,request):
         return render(request, 'destinations.html')
 
+def main():
+    pass
